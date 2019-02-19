@@ -1,0 +1,34 @@
+<h1>Angular Test Assignment - Lazy Loading + HTTP</h1>
+<h2>Background:</h2>
+<p>
+By default, all Angular modules are eagerly loaded and this can result in an overly large default
+JS bundle size on large projects, causing the site to load very slowly. Also, all defined routes are
+easily accessible without any restriction logic.
+</p>
+
+<h2>Problem:</h2>
+
+<p>
+Create an app with 3 arbitrary modules - 1 entry module that contains a root index page and 2
+lazy loaded ones, both with a defined single, additional route. Provide a very simple UI to
+navigate between routes using any chosen HTML element (e.g. button).
+</p>
+<p>
+Assume that a REST API is listening on http://localhost:3000 url and the equivalent
+endpoint is http://localhost:3000/login. This endpoint expects following body schema:
+</p>
+<p>login: string;</p>
+<p>password: string;</p>
+
+<p>To test how your code behaves, you may create a mock HTTP server, for example, using Postman.</p>
+
+<h2>Spec:</h2>
+
+<ul>
+  <li>As a user, I should be able to navigate to lazy loaded route when the preceding HTTP
+  call doesn’t return with error status code. On a 2xx response, the route should load.</li>
+  <li>As the application, I should not make an API request until the user has changed the
+  current route (don’t the API until user actually tries to navigate). </li>
+  <li>As the application, when the API has returned a successful response at least once, I
+  shouldn’t call the API again (for example, when user wants to navigate to another page).</li>
+</ul>
