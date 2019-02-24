@@ -1,0 +1,126 @@
+@import "colors";
+@import "button";
+@import "shadow";
+
+
+:host {
+  width: 280px;
+  display: block;
+  margin: 32px auto;
+
+  // here I tried to pick up the font
+  //font-family: 'Merriweather Sans', sans-serif;
+  //font-family: 'Magra', sans-serif;
+  //font-family: 'Capriola', sans-serif;
+  font-family: 'Molengo', sans-serif;
+
+  font-size: 13px;
+  line-height: 1.5em;
+  letter-spacing: 0.35px;
+  color: #858585;
+}
+
+.remaining-box {
+
+  @include shadowed();
+
+  $backgroundColor: #424242;
+
+  position: relative;
+  background-color: $backgroundColor;
+  height: 46px;
+  color: white;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+
+  // triangle
+  &:after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    right: 32px;
+    border-top: solid 7px #{$backgroundColor};
+    border-left: solid 5px transparent;
+    border-right: solid 5px transparent;
+  }
+}
+
+.progress {
+  border: 1px solid #e3e3e3;
+  background-color: #FAFAFA;
+  height: 12px;
+
+  .fill {
+    width: 75%;
+    height: 100%;
+    background-color: $accent;
+  }
+}
+
+.card {
+
+  @include shadowed();
+
+  display: inline-block;
+
+  border: 1px solid #e3e3e3;
+  border-top: none;
+  padding: 0 20px;
+
+  .days-left {
+    color: $accent;
+    font-weight: bold;
+  }
+
+  .why-give {
+    font-style: italic;
+    color: #33bdde;
+    margin-top: 8px;
+  }
+
+  .donate-container {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    height: 47px;
+  }
+
+  .input-with-prefix {
+
+    display: flex;
+    align-items: baseline;
+
+    border-radius: 3px;
+    border: 1px solid #e3e3e3;
+    padding-left: 6px;
+
+    label {
+      font-size: 21px;
+      margin-right: 4px;
+      color: #919191;
+    }
+
+    input {
+      font-size: 16px;
+      font-weight: bold;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      min-width: 0;
+      border: none;
+    }
+  }
+}
+
+.buttons-container {
+  margin-top: 12px;
+  display: grid;
+  height: 36px;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr;
+}

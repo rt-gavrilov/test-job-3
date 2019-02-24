@@ -12,10 +12,12 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {AuthService} from './auth-service';
 import {AuthGuard} from './auth.guard';
 import {HttpClientModule} from '@angular/common/http';
+import {CardComponent} from './card/card.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
+  {path: 'card', component: CardComponent, pathMatch: 'full'},
   {path: 'lazy-1', canActivate: [AuthGuard], loadChildren: './first-lazy-module/first-lazy.module#FirstLazyModule', pathMatch: 'full'},
   {path: 'lazy-2', canActivate: [AuthGuard], loadChildren: './second-lazy-module/second-lazy.module#SecondLazyModule', pathMatch: 'full'},
   {path: '**', redirectTo: ''}
@@ -25,7 +27,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
